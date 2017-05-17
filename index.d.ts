@@ -7,7 +7,7 @@ declare function nerdamer(
 	location?: nerdamer.int): nerdamer.Expression
 declare namespace nerdamer {
 	export interface Options {
-		numer, expand
+		numer: never, expand: never
 	}
 	type int = number
 	/**
@@ -243,14 +243,14 @@ return _.multiply(sum, product)
 	 * @param lower Starting index.
 	 * @param upper Ending index.
 	 */
-	export function sum(expression: string, index: string, lower: string, upper: string)
+	export function sum(expression: string | Expression, index: string, lower: string, upper: string): Expression
 
 	/**
 	 *
 	 * @param expression Returns the appropriate value if possible otherwise it returns the function with the simplified expression.
 	 * @param variable The variable with respect to which to integrate.
 	 */
-	export function integrate(expression: string, variable: string): Expression
+	export function integrate(expression: string | Expression, variable: string): Expression
 
 	/**
 	 *
@@ -258,7 +258,7 @@ return _.multiply(sum, product)
 	 * @param variable The variable with respect to which to differentiate.
 	 * @param n Calculate the nth derivative.
 	 */
-	export function diff(expression: string, variable: string, n?: int): Expression
+	export function diff(expression: string | Expression, variable: string, n?: int): Expression
 
 	////////// ALGEBRA
 
@@ -266,23 +266,23 @@ return _.multiply(sum, product)
 	 * Divides 2 polynominals.
 	 * @param expression Returns the appropriate value if possible otherwise it returns the function with the simplified expression.
 	 */
-	export function divide(expression: string): Expression
+	export function divide(expression: string | Expression): Expression
 
 	/**
 	 * Factor an expression.
 	 * @param expression Returns the appropriate value if possible otherwise it returns the function with the simplified expression.
 	 */
-	export function factor(expression: string): Expression
+	export function factor(expression: string | Expression): Expression
 
 	/**
 	 * Gets the GCD of 2 polynomials.
 	 * @param expression Returns the appropriate value if possible otherwise it returns the function with the simplified expression.
 	 */
-	export function gcd(expression: string): Expression
+	export function gcd(expression: string | Expression): Expression
 
 	/**
 	 * Finds the roots of a univariate polynomial.
 	 * @param expression
 	 */
-	export function factor(expression: string): Expression
+	export function factor(expression: string | Expression): Expression
 }
